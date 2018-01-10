@@ -2,157 +2,140 @@
 SendMode Input
 #InstallKeybdHook
 #UseHook On
-Menu, Tray, Icon, shell32.dll, 283 ; this changes the tray icon to a little keyboard!
-#SingleInstance force ;only one instance of this script may run at a time!
+Menu, Tray, Icon, shell32.dll, 283
+#SingleInstance force
 #MaxHotkeysPerInterval 2000
-#WinActivateForce ;https://autohotkey.com/docs/commands/_WinActivateForce.htm
-;;
-;WARNING, CURRENTLY UNTESTED - WILL TEST SOON.
-
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-; HELLO, poeple who want info about making a second keyboard, using LUAmacros!
-
-; Here's my LTT video about how I use the 2nd keyboard with Luamacros: https://www.youtube.com/watch?v=Arn8ExQ2Gjg
-; And Tom's video, which unfortunately does not have info on how to actually DO it: https://youtu.be/lIFE7h3m40U?t=16m9s
-; so you also need LUAmacros as well, of course.
-; Luamacros: http://www.hidmacros.eu/forum/viewtopic.php?f=10&t=241#p794
-; AutohotKey: https://autohotkey.com/
-
-; However, I no longer use luaMacros, because I believe interecept.exe is even better! My current code is available in "ALL MULTIPLE KEYBOARD ASSIGNMENTS.ahk"
-
-; Lots of other explanatory videos other AHK scripts can be found on my youtube channel! https://www.youtube.com/user/TaranVH/videos 
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+#WinActivateForce							;https://autohotkey.com/docs/commands/_WinActivateForce.htm
 
 ;-------------2ND KEYBOARD USING LUAMACROS-----------------
 
 ~F24::
 FileRead, key, C:\Users\runarsf\Documents\GitHub\2nd-keyboard\2nd keyboard support files\keypressed.txt
-;tippy(key) ; this function will just launch a quick tooltip that shows you what key you pressed. OPTIONAL.
+tippy(key) ; SHOWS BRIEF TOOLTIP OF PRESSED KEY
 If (key = "o")
-Run C:\Users\runarsf\AppData\Local\osu!\osu!.exe
+run, C:\Users\runarsf\AppData\Local\osu!\osu!.exe
 else if(key = "p")
-return ;preset("flip vertical")
+return
 else if(key = "i")
-return ;preset("multiply")
+return
 
 else if (key = "leftbracket")
-return ;preset("pop in motion") 
+return
 else if(key = "rightbracket")
-return ;preset("pop out motion")
+return
 
 else if (key = "y")
-return ;preset("pop in transform") 
+return
 else if(key = "u")
-return ;preset("pop out transform")
+return
 
 else if(key = "m")
-return ;preset("pan down")
+return
 else if(key = "j")
-return ;preset("pan up")
+return
 else if(key = "n")
-Run C:\Program Files\Notepad++\notepad++.exe
+run, C:\Program Files\Notepad++\notepad++.exe
 else if(key = "comma")
-return ;preset("pan right")
+return
 else if(key = "h")
-return ;preset("zoom fast")
+return
 else if(key = "k")
-return ;preset("zoom slow")
+return
 
 else if(key = "period")
-return ;preset("crop small")
+return
 else if(key = "slash")
-return ;preset("crop full")
+return
 else if(key = "singlequote")
-return ;preset("warp")
+return
 
 else if(key = "semicolon")
-return ;preset("blur with edges")
+return
 else if(key = "l")
-return ;preset("LTT")
+return
 
 else if(key = "F6")
-return ;insertSFX("buzz")
+return
 else if(key = "F7")
-return ;insertSFX("ding")
+return
 else if(key = "F8")
-return ;insertSFX("bleep")
+return
 else if(key = "F9")
-return ;insertSFX("woosh")
+return
 else if(key = "F10")
-return ;insertSFX("woosh TSFX")
+return
 else if(key = "F11")
-return ;insertSFX("bwoop")
+return
 else if(key = "F12")
-return ;insertSFX("pop")
+return
 else if(key = "F5")
-return ;insertSFX("SEARCH")
+return
 
 
-else if (key = "insert") ;FLASH TRANSITIONS
-return ;preset("impact flash long")
+else if (key = "insert")
+return
 else if(key = "home") 
-return ;preset("impact flash med")
+return
 else if(key = "pageup")
-return ;preset("impact flash short")
-else if(key = "delete") ;DISSOLVE TRANSITIONS
-return ;preset("cross dissolve long")
+return
+else if(key = "delete")
+return
 else if(key = "end")
-return ;preset("cross dissolve med")
+return
 else if(key = "pagedown")
-return ;preset("cross dissolve short")
-else if(key = "q") ;WIPE transitions
-return ;recallTransition(20)
+return
+else if(key = "q")
+return
 else if(key = "w")
-return ;recallTransition(21)
+return
 else if(key = "e")
-return ;recallTransition(22)
+return
 else if(key = "a")
-return ;recallTransition(23)
-; else if(key = "s")
-; return ;recallTransition(??) ; iris
+return
+else if(key = "s")
+return
 else if(key = "d")
-return ;recallTransition(24)
+return
 else if(key = "z")
-return ;recallTransition(25)
+return
 else if(key = "x")
-return ;recallTransition(26)
+return
 else if(key = "c")
-return ;recallTransition(27)
+return
 
 else if(key = "minus")
-return ;audioMonoMaker(0)
+return
 else if(key = "equals")
-return ;audioMonoMaker(1)
+return
 
 
 else if(key = "r")
-return ;copy(1)
+return
 else if(key = "f")
-return ;copy(2)
+return
 else if(key = "v")
-return ;copy(3)
+return
 
 else if(key = "t")
-return ;paste(1)
+return
 else if(key = "g")
-return ;paste(2)
+return
 else if(key = "b")
-return ;paste(3)
+return
 
-else if(key = "up") ;impact push transitions - fun fact, you can SAVE TRANSITION return ;presetS if they are cross dissolve or from a 3rd party. In the effect controls triple line menu.
-return ;preset("push up")
+else if(key = "up")
+return
 else if(key = "left")
-return ;preset("push left")
+return
 else if(key = "down")
-return ;return ;preset("push down")
+return
 else if(key = "right")
-return ;return ;preset("push right")
+return
 
 else if(key = "enter")
-Send ^!e ;in premiere, set this to "remove effects"
+return
 
-else if(key = "num0") ;just mirroring the normal numpad - IDK how else to do this.
+else if(key = "num0") ;just mirroring the normal numpad
 Send {Numpad0}
 else if(key = "num1")
 Send {Numpad1}
@@ -177,17 +160,17 @@ Send {NumpadDiv}
 else if(key = "numMult")
 Send {NumpadMult}
 
-return ;from luamacros F24
+return
 
 
-/*		TEMPORARY TOOLTIP		*/
+;		TEMPORARY TOOLTIP		;
 Tippy(tipsHere, wait:=333)
 {
-ToolTip, %tipsHere% TP,,,8
+ToolTip, %tipsHere%,,,8
 SetTimer, noTip, %wait% ;--in 1/3 seconds by default, remove the tooltip
 }
 noTip:
 	ToolTip,,,,8
 	;removes the tooltip
 return
-/*								*/
+;								;
