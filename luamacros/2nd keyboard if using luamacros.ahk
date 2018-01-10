@@ -95,9 +95,11 @@ return
 else if(key = "s")
 return
 else if(key = "d")
-run, C:\Users\runarsf\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord Canary.lnk
-WinWait, ahk_exe DiscordCanary.exe
-WinActivate, ahk_exe DiscordCanary.exe
+	{
+	run, C:\Users\runarsf\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord Canary.lnk
+	WinWait, ahk_exe DiscordCanary.exe
+	WinActivate, ahk_exe DiscordCanary.exe
+	}
 else if(key = "z")
 return
 else if(key = "x")
