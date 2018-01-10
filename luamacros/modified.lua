@@ -7,7 +7,7 @@ lmc_assign_keyboard('MACROS');
 
 sendToAHK = function (key)
       --print('It was assigned string:    ' .. key)
-      local file = io.open("C:\\Users\\TaranWORK\\Documents\\GitHub\\2nd-keyboard\\2nd keyboard support files\\keypressed.txt", "w") -- writing this string to a text file on disk is probably NOT the best method. Feel free to program something better!
+      local file = io.open("C:\\Users\\runarsf\\Documents\\GitHub\\2nd-keyboard\\2nd keyboard support files\\keypressed.txt", "w") -- writing this string to a text file on disk is probably NOT the best method. Feel free to program something better!
       --Make sure to substitute the path that leads to your own "keypressed.txt" file, using the double backslashes.
 	  --print("we are inside the text file")
       file:write(key)
