@@ -13,7 +13,7 @@ Menu, Tray, Icon, shell32.dll, 283
 FileRead, key, C:\Users\runarsf\Documents\GitHub\2nd-keyboard\2nd keyboard support files\keypressed.txt
 tippy(key) ; SHOWS BRIEF TOOLTIP OF PRESSED KEY
 If (key = "o")
-run, "%UserProfile%\AppData\Local\osu!\osu!.exe"
+run, "C:\Users\runarsf\AppData\Local\osu!\osu!.exe"
 else if(key = "p")
 	{
 	prog := "ahk_exe procexp64.exe"
@@ -28,12 +28,12 @@ else if(key = "p")
 else if(key = "i")
 	return
 
-else if (key = "leftbracket")
+else if(key = "leftbracket")
 	return
 else if(key = "rightbracket")
 	return
 
-else if (key = "y")
+else if(key = "y")
 	return
 else if(key = "u")
 	return
@@ -115,7 +115,7 @@ else if(key = "F12")
 		WinActivate %prog%
 }
 
-else if (key = "insert")
+else if(key = "insert")
 	return
 else if(key = "home")
 	return
@@ -128,7 +128,11 @@ else if(key = "end")
 else if(key = "pagedown")
 	return
 else if(key = "q")
-	return
+	{
+	Process, Close, DiscordCanary.exe
+	sleep, 350
+	run, "C:\Users\runarsf\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord Canary.lnk"
+	}
 else if(key = "w")
 	return
 else if(key = "e")
