@@ -54,6 +54,16 @@ return
 else if(key = "l")
 return
 
+else if(key = "F1")
+	TaskbarMove("Top")
+else if(key = "F2")
+	TaskbarMove("Bottom")
+else if(key = "F3")
+return
+else if(key = "F4")
+return
+else if(key = "F5")
+return
 else if(key = "F6")
 return
 else if(key = "F7")
@@ -67,8 +77,6 @@ return
 else if(key = "F11")
 return
 else if(key = "F12")
-return
-else if(key = "F5")
 return
 
 
@@ -96,10 +104,15 @@ else if(key = "s")
 return
 else if(key = "d")
 	{
-	run, C:\Users\runarsf\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord Canary.lnk
-	WinWait, ahk_exe DiscordCanary.exe
-	WinActivate, ahk_exe DiscordCanary.exe
-	}
+    IfWinNotExist, ahk_exe DiscordCanary.exe
+    run, C:\Users\runarsf\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord Canary.lnk
+    if WinActive("ahk_exe DiscordCanary.exe")
+    {
+        return
+    }
+    else
+        WinActivate ahk_exe DiscordCanary.exe
+}
 else if(key = "z")
 return
 else if(key = "x")
@@ -116,7 +129,16 @@ return
 else if(key = "r")
 return
 else if(key = "f")
-return
+    {
+    IfWinNotExist, ahk_class MozillaWindowClass
+    run, firefox.exe
+    if WinActive("ahk_class MozillaWindowClass")
+    {
+        send, ^{tab}
+    }
+    else
+        WinActivate ahk_class MozillaWindowClass
+}
 else if(key = "v")
 return
 
@@ -167,14 +189,45 @@ Send {NumpadMult}
 return
 
 
-;		TEMPORARY TOOLTIP		;
+
 Tippy(tipsHere, wait:=333)
 {
 ToolTip, %tipsHere%,,,8
-SetTimer, noTip, %wait% ;--in 1/3 seconds by default, remove the tooltip
+SetTimer, noTip, %wait%
 }
 noTip:
 	ToolTip,,,,8
-	;removes the tooltip
 return
-;								;
+
+
+TaskbarMove(p_pos) {
+	label:="TaskbarMove_" p_pos
+
+	WinExist("ahk_class Shell_TrayWnd")
+	SysGet, s, Monitor
+
+	if (IsLabel(label)) {
+		Goto, %label%
+	}
+	return
+
+	TaskbarMove_Top:
+	TaskbarMove_Bottom:
+	WinMove(sLeft, s%p_pos%, sRight, 0)
+	return
+}
+
+WinMove(p_x, p_y, p_w="", p_h="", p_hwnd="") {
+	WM_ENTERSIZEMOVE:=0x0231
+	WM_EXITSIZEMOVE :=0x0232
+	
+	if (p_hwnd!="") {
+		WinExist("ahk_id " p_hwnd)
+	}
+	
+	SendMessage, WM_ENTERSIZEMOVE
+	;//Tooltip WinMove(%p_x%`, %p_y%`, %p_w%`, %p_h%)
+	WinMove, , , p_x, p_y, p_w, p_h
+	SendMessage, WM_EXITSIZEMOVE
+}
+Return
