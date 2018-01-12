@@ -13,178 +13,243 @@ Menu, Tray, Icon, shell32.dll, 283
 FileRead, key, C:\Users\runarsf\Documents\GitHub\2nd-keyboard\2nd keyboard support files\keypressed.txt
 tippy(key) ; SHOWS BRIEF TOOLTIP OF PRESSED KEY
 If (key = "o")
-run, C:\Users\runarsf\AppData\Local\osu!\osu!.exe
+run, "%UserProfile%\AppData\Local\osu!\osu!.exe"
 else if(key = "p")
-return
+	{
+	prog := "ahk_exe procexp64.exe"
+	loc := "D:\Home\Documents\Tools\ProcessExplorer\procexp64.exe"
+	IfWinNotExist %prog%
+		run, %loc%
+		WinWait %prog%
+		WinActivate %prog%
+	IfWinExist %prog%
+		WinActivate %prog%
+}
 else if(key = "i")
-return
+	return
 
 else if (key = "leftbracket")
-return
+	return
 else if(key = "rightbracket")
-return
+	return
 
 else if (key = "y")
-return
+	return
 else if(key = "u")
-return
+	return
 
 else if(key = "m")
-return
+	return
 else if(key = "j")
-return
+	return
 else if(key = "n")
-run, C:\Program Files\Notepad++\notepad++.exe
+	{
+	prog := "ahk_exe notepad++.exe"
+	loc := "C:\Program Files\Notepad++\notepad++.exe"
+	IfWinNotExist %prog%
+		run, %loc%
+		WinWait %prog%
+		WinActivate %prog%
+	IfWinExist %prog%
+		WinActivate %prog%
+}
 else if(key = "comma")
-return
+	return
 else if(key = "h")
-return
+	return
 else if(key = "k")
-return
+	return
 
 else if(key = "period")
-return
+	return
 else if(key = "slash")
-return
+	return
 else if(key = "singlequote")
-return
+	return
 
 else if(key = "semicolon")
-return
+	return
 else if(key = "l")
-return
+	return
 
 else if(key = "F1")
 	TaskbarMove("Top")
 else if(key = "F2")
 	TaskbarMove("Bottom")
 else if(key = "F3")
-return
+	return
 else if(key = "F4")
-return
+	return
 else if(key = "F5")
-return
+	return
 else if(key = "F6")
-return
+	return
 else if(key = "F7")
-return
+	return
 else if(key = "F8")
-return
+	return
 else if(key = "F9")
-return
+	return
 else if(key = "F10")
-return
+	return
 else if(key = "F11")
-return
+	{
+	prog := "ahk_exe Au3Info_x64.exe"
+	loc := "C:\Program Files (x86)\AutoIt3\Au3Info_x64.exe"
+	IfWinNotExist %prog%
+		run, %loc%
+		WinWait %prog%
+		WinActivate %prog%
+	IfWinExist %prog%
+		WinActivate %prog%
+}
 else if(key = "F12")
-return
-
+	{
+	prog := "ahk_exe AutoHotkeyGUI"
+	loc := "C:\Program Files\AutoHotkey\AU3_Spy.exe"
+	IfWinNotExist %prog%
+		run, %loc%
+		WinWait %prog%
+		WinActivate %prog%
+	IfWinExist %prog%
+		WinActivate %prog%
+}
 
 else if (key = "insert")
-return
-else if(key = "home") 
-return
+	return
+else if(key = "home")
+	return
 else if(key = "pageup")
-return
+	return
 else if(key = "delete")
-return
+	return
 else if(key = "end")
-return
+	return
 else if(key = "pagedown")
-return
+	return
 else if(key = "q")
-return
+	return
 else if(key = "w")
-return
+	return
 else if(key = "e")
-return
+	return
 else if(key = "a")
-return
+	return
 else if(key = "s")
-return
+	return
 else if(key = "d")
 	{
-    IfWinNotExist, ahk_exe DiscordCanary.exe
-    run, C:\Users\runarsf\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord Canary.lnk
-    if WinActive("ahk_exe DiscordCanary.exe")
-    {
-        return
-    }
-    else
-        WinActivate ahk_exe DiscordCanary.exe
+	prog := "ahk_exe DiscordCanary.exe"
+	loc := "C:\Users\runarsf\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord Canary.lnk"
+	IfWinNotExist %prog%
+		run, %loc%
+		WinWait %prog%
+		WinActivate %prog%
+	IfWinExist %prog%
+		WinActivate %prog%
 }
 else if(key = "z")
-return
+	return
 else if(key = "x")
-return
+	return
 else if(key = "c")
-return
+	{
+	prog := "ahk_exe chrome.exe"
+	loc := "chrome.exe"
+	IfWinActive %prog%
+		send, ^{tab}
+	IfWinNotExist %prog%
+		run, %loc%
+		WinWait %prog%
+		WinActivate %prog%
+	IfWinExist %prog%
+		WinActivate %prog%
+}
 
 else if(key = "minus")
-return
+	return
 else if(key = "equals")
-return
-
+	return
 
 else if(key = "r")
-return
+	{
+	prog := "ahk_exe OORegEdt.exe"
+	loc := "D:\Home\Documents\Tools\ooRegEdit\OORegEdt.exe"
+	IfWinNotExist %prog%
+		run, %loc%
+		WinWait %prog%
+		WinActivate %prog%
+	IfWinExist %prog%
+		WinActivate %prog%
+}
 else if(key = "f")
-    {
-    IfWinNotExist, ahk_class MozillaWindowClass
-    run, firefox.exe
-    if WinActive("ahk_class MozillaWindowClass")
-    {
-        send, ^{tab}
-    }
-    else
-        WinActivate ahk_class MozillaWindowClass
+	{
+	prog := "ahk_class MozillaWindowClass"
+	loc := "firefox.exe"
+	IfWinActive %prog%
+		send, ^{tab}
+	IfWinNotExist %prog%
+		run, %loc%
+		WinWait %prog%
+		WinActivate %prog%
+	IfWinExist %prog%
+		WinActivate %prog%
 }
 else if(key = "v")
-return
+	return
 
 else if(key = "t")
-return
+	return
 else if(key = "g")
-return
+	{
+	prog := "ahk_exe GitHubDesktop.exe"
+	loc := "C:\Users\runarsf\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
+	IfWinNotExist %prog%
+		run, %loc%
+		WinWait %prog%
+		WinActivate %prog%
+	IfWinExist %prog%
+		WinActivate %prog%
+}
 else if(key = "b")
-return
+	return
 
 else if(key = "up")
-return
+	return
 else if(key = "left")
-return
+	return
 else if(key = "down")
-return
+	return
 else if(key = "right")
-return
+	return
 
 else if(key = "enter")
-return
+	return
 
 else if(key = "num0") ;just mirroring the normal numpad
-Send {Numpad0}
+	Send {Numpad0}
 else if(key = "num1")
-Send {Numpad1}
+	Send {Numpad1}
 else if(key = "num2")
-Send {Numpad2}
+	Send {Numpad2}
 else if(key = "num3")
-Send {Numpad3}
+	Send {Numpad3}
 else if(key = "num4")
-Send {Numpad4}
+	Send {Numpad4}
 else if(key = "num5")
-Send {Numpad5}
+	Send {Numpad5}
 else if(key = "num6")
-Send {Numpad6}
+	Send {Numpad6}
 else if(key = "num7")
-Send {Numpad7}
+	Send {Numpad7}
 else if(key = "num8")
-Send {Numpad8}
+	Send {Numpad8}
 else if(key = "num9")
-Send {Numpad9}
+	Send {Numpad9}
 else if(key = "numDiv")
-Send {NumpadDiv}
+	Send {NumpadDiv}
 else if(key = "numMult")
-Send {NumpadMult}
+	Send {NumpadMult}
 
 return
 
