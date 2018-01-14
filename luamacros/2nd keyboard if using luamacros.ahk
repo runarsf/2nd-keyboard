@@ -136,7 +136,16 @@ else if(key = "q")
 else if(key = "w")
 	return
 else if(key = "e")
-	return
+{
+IfWinNotExist, ahk_class CabinetWClass
+	run, explorer.exe
+GroupAdd, explort, ahk_class CabinetWClass
+if WinActive("ahk_exe explorer.exe")
+	GroupActivate, explort, r
+else
+	WinActivate ahk_class CabinetWClass
+return
+}
 else if(key = "a")
 	return
 else if(key = "s")
