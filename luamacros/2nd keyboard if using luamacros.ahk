@@ -149,7 +149,16 @@ return
 else if(key = "a")
 	return
 else if(key = "s")
-	return
+	{
+	prog := "ahk_exe Steam.exe"
+	loc := "C:\Program Files (x86)\Steam\Steam.exe"
+	IfWinNotExist %prog%
+		run, %loc%
+		WinWait %prog%
+		WinActivate %prog%
+	IfWinExist %prog%
+		WinActivate %prog%
+}
 else if(key = "d")
 	{
 	prog := "ahk_exe DiscordCanary.exe"
