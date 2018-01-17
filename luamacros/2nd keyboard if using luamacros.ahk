@@ -173,7 +173,9 @@ else if(key = "d")
 else if(key = "z")
 	return
 else if(key = "x")
-	return
+	{
+	SendInput, lmao xd lol rofl ialmaorn pwnd roflmao iamallama XD lawl Cx
+	}
 else if(key = "c")
 	{
 	prog := "ahk_exe chrome.exe"
