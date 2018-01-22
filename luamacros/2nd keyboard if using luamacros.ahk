@@ -36,7 +36,7 @@ else if(key = "rightbracket")
 else if(key = "y")
 	return
 else if(key = "u")
-	return
+	run, control appwiz.cpl
 
 else if(key = "m")
 	return
