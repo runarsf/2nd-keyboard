@@ -1,4 +1,4 @@
-#NoEnv
+﻿#NoEnv
 SendMode Input
 #InstallKeybdHook
 #UseHook On
@@ -70,7 +70,7 @@ else if(key = "singlequote")
 else if(key = "semicolon")
 	return
 else if(key = "l")
-	return
+	SendInput, ( ͡° ͜ʖ ͡°)
 
 else if(key = "F1")
 	TaskbarMove("Top")
