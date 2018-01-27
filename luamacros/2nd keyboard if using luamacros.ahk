@@ -273,7 +273,7 @@ else if(key = "num9")
 else if(key = "numDiv")
 	Send {NumpadDiv}
 else if(key = "numMult")
-	Send {NumpadMult}
+	Send {Media_Play_Pause}
 
 return
 
