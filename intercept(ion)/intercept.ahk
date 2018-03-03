@@ -1,4 +1,6 @@
-﻿+!Esc::reload
+﻿#SingleInstance, Force
+Menu, Tray, Icon, shell32.dll, 283
++!Esc::reload
 return
 
 #if (getKeyState("F23", "P"))
@@ -20,11 +22,11 @@ m::return
 n::run, C:\Program Files\Notepad++\notepad++.exe
 return
 o::
-	run, %UserProfile%\AppData\Local\osu!\osu!.exe
-	sleep, 2500
+run, %localappdata%\osu!\osu!.exe
+sleep, 2500
 	;if !WinExist("ahk_exe osu!InputDelayRemover.exe")
 		;run, D:\Documents\Tools\osu!InputDelayRemover\osu!InputDelayRemover.exe
-	return
+return
 return
 p::return
 q::return
@@ -50,12 +52,12 @@ z::return
 7::return
 8::return
 9::return
-;F1::return
-;F2::return
+F1::
+F2::
 F3::return
 F4::return
-F5::return
-F6::return
+F5::TaskbarMove("Top")
+F6::TaskbarMove("Bottom")
 F7::return
 F8::return
 F9::return
@@ -79,73 +81,71 @@ ScrollLock::return
 Space::run, explorer.exe
 
 F::
-	IfWinNotExist, ahk_class MozillaWindowClass
-		run, firefox.exe
-	if WinActive("ahk_class MozillaWindowClass")
-		send, ^{tab}
-	else
-		WinActivate ahk_class MozillaWindowClass
-	return
-return 
-
-F1::TaskbarMove("Top")
-F2::TaskbarMove("Bottom")
-
-
+prog := "ahk_exe firefox.exe"
+loc := "firefox.exe"
+IfWinActive %prog%
+	send, ^{tab}
+IfWinNotExist %prog%
+	run, %loc%
+WinWait %prog%
+WinActivate %prog%
+IfWinExist %prog%
+	WinActivate %prog%
+return
 
 TaskbarMove(p_pos) {
-    label:="TaskbarMove_" p_pos
-
-    WinExist("ahk_class Shell_TrayWnd")
-    SysGet, s, Monitor
-
-    if (IsLabel(label)) {
-        Goto, %label%
-    }
-    return
-
-    TaskbarMove_Top:
-    TaskbarMove_Bottom:
-    WinMove(sLeft, s%p_pos%, sRight, 0)
-    return
+	label:="TaskbarMove_" p_pos
+	
+	WinExist("ahk_class Shell_TrayWnd")
+	SysGet, s, Monitor
+	
+	if (IsLabel(label)) {
+		Goto, %label%
+	}
+	return
+	
+	TaskbarMove_Top:
+	TaskbarMove_Bottom:
+	WinMove(sLeft, s%p_pos%, sRight, 0)
+	return
 }
 
 WinMove(p_x, p_y, p_w="", p_h="", p_hwnd="") {
-    WM_ENTERSIZEMOVE:=0x0231
-    WM_EXITSIZEMOVE :=0x0232
-
-    if (p_hwnd!="") {
-        WinExist("ahk_id " p_hwnd)
-    }
-
-    SendMessage, WM_ENTERSIZEMOVE
+	WM_ENTERSIZEMOVE:=0x0231
+	WM_EXITSIZEMOVE :=0x0232
+	
+	if (p_hwnd!="") {
+		WinExist("ahk_id " p_hwnd)
+	}
+	
+	SendMessage, WM_ENTERSIZEMOVE
     ;//Tooltip WinMove(%p_x%`, %p_y%`, %p_w%`, %p_h%)
-    WinMove, , , p_x, p_y, p_w, p_h
-    SendMessage, WM_EXITSIZEMOVE
+	WinMove, , , p_x, p_y, p_w, p_h
+	SendMessage, WM_EXITSIZEMOVE
 }
 
 
 /*
-$NumpadMult::
-while GetKeyState("NumpadMult","P")
-	loop
-	{
-	count++
-	tooltip, %count%
-	sleep, 200
+	$NumpadMult::
+	while GetKeyState("NumpadMult","P")
+		loop
+		{
+			count++
+			tooltip, %count%
+			sleep, 200
+			
+		}
+	return
 	
-	}
-return
-
-$NumpadMult Up::
-BreakLoop = 1
-count = 0
-return
-
-if (count > 200)
-	MsgBox, count over 200
+	$NumpadMult Up::
+	BreakLoop = 1
+	count = 0
+	return
+	
+	if (count > 200)
+		MsgBox, count over 200
 	count := 0
 	tooltip
-tooltip
-return
+	tooltip
+	return
 */
