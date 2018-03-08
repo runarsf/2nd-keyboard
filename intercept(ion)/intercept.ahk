@@ -8,7 +8,7 @@ F12::return
 
 a::return
 b::return
-c::return
+c::run, D:\Program Files (x86)\SteamLibrary\steamapps\common
 d::return
 e::return
 ;f::return
