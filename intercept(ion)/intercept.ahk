@@ -7,8 +7,8 @@ return
 F12::return
 
 a::return
-b::return
-c::run, D:\Program Files (x86)\SteamLibrary\steamapps\common
+b::run, C:\Users\rufus\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\rufus
+c::run, D:\Program Files (x86)\SteamLibrary\steamapps\common\Team Fortress 2\tf\cfg
 d::return
 e::return
 ;f::return
