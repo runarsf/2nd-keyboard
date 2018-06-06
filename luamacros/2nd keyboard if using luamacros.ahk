@@ -48,9 +48,10 @@ Class Active {
 }
 
 ~F24::
-FileRead, key, "C:\Users\rufus\Documents\GitHub\2nd-keyboard\support files\keypressed.txt"
+FileRead, key, C:\Users\rufus\Documents\GitHub\2nd-keyboard\support files\keypressed.txt
+sleep, 150
 tippy(key) ; SHOWS BRIEF TOOLTIP OF PRESSED KEY
-If (key = "o")
+if(key = "o")
 	run, "C:\Users\rufus\AppData\Local\osu!\osu!.exe"
 else if(key = "p")
 	Active.norm("ahk_exe procexp64.exe", "D:\Home\Documents\Tools\ProcessExplorer\procexp64.exe")
