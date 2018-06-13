@@ -51,10 +51,12 @@ Class Active {
 FileRead, key, C:\Users\rufus\Documents\GitHub\2nd-keyboard\support files\keypressed.txt
 sleep, 150
 tippy(key) ; SHOWS BRIEF TOOLTIP OF PRESSED KEY
-if(key = "o")
-	run, "C:\Users\rufus\AppData\Local\osu!\osu!.exe"
+if(key = "f")
+{
+	Active.broswer("ahk_exe firefox.exe", "firefox.exe")
+}
 else if(key = "p")
-	Active.norm("ahk_exe procexp64.exe", "D:\Home\Documents\Tools\ProcessExplorer\procexp64.exe")
+	return
 else if(key = "i")
 	return
 else if(key = "leftbracket")
@@ -64,15 +66,17 @@ else if(key = "rightbracket")
 else if(key = "y")
 	return
 else if(key = "u")
-{
-	run, control appwiz.cpl
-}
+	return
+else if(key = "space")
+	return
+else if(key = "alt")
+	return
 else if(key = "m")
 	return
 else if(key = "j")
 	return
 else if(key = "n")
-	Active.broswer("ahk_exe notepad++.exe", "C:\Program Files\Notepad++\notepad++.exe")
+	return
 else if(key = "comma")
 	return
 else if(key = "h")
@@ -88,13 +92,11 @@ else if(key = "singlequote")
 else if(key = "semicolon")
 	return
 else if(key = "l")
-{
-	SendInput, ( ͡° ͜ʖ ͡°)
-}
+	return
 else if(key = "F1")
-	TaskbarMove("Top")
+	return
 else if(key = "F2")
-	TaskbarMove("Bottom")
+	return
 else if(key = "F3")
 	return
 else if(key = "F4")
@@ -112,7 +114,7 @@ else if(key = "F9")
 else if(key = "F10")
 	return
 else if(key = "F11")
-	Active.norm("ahk_exe AutoHotkeyGUI", "C:\Program Files\AutoHotkey\WindowSpy.ahk")
+	return
 else if(key = "F12")
 	return
 else if(key = "insert")
@@ -124,31 +126,27 @@ else if(key = "pageup")
 else if(key = "delete")
 	return
 else if(key = "end")
-	return
+	return 
 else if(key = "pagedown")
 	return
+else if(key = "backspace")
+	return
 else if(key = "q")
-{
-	Process, Close, DiscordCanary.exe
-	sleep, 350
-	run, "C:\Users\rufus\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord Canary.lnk"
-}
+	return
 else if(key = "w")
 	return
 else if(key = "e")
-	Active.explorer()
+	return
 else if(key = "a")
 	return
 else if(key = "s")
-	Active.norm("ahk_exe Steam.exe", "C:\Program Files (x86)\Steam\Steam.exe")
+	return
 else if(key = "d")
-	Active.norm("ahk_exe DiscordCanary.exe", "C:\Users\rufus\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord Canary.lnk")
+	return
 else if(key = "z")
 	return
 else if(key = "x")
-{
-	SendInput, lmao xd lol rofl ialmaorn pwnd roflmao iamallama XD lawl Cx
-}
+	return
 else if(key = "c")
 	return
 else if(key = "minus")
@@ -156,15 +154,15 @@ else if(key = "minus")
 else if(key = "equals")
 	return
 else if(key = "r")
-	Active.norm("ahk_exe OORegEdt.exe", "D:\Home\Documents\Tools\ooRegEdit\OORegEdt.exe")
+	return
 else if(key = "f")
-	Active.broswer("ahk_class MozillaWindowClass", "firefox.exe")
+	return
 else if(key = "v")
 	return
 else if(key = "t")
 	return
 else if(key = "g")
-	Active.norm("ahk_exe GitHubDesktop.exe", "C:\Users\rufus\AppData\Local\GitHubDesktop\GitHubDesktop.exe")
+	return
 else if(key = "b")
 	return
 else if(key = "up")
@@ -214,36 +212,3 @@ Tippy(tipsHere, wait:=333)
 noTip:
 ToolTip,,,,8
 return
-
-
-TaskbarMove(p_pos) {
-	label:="TaskbarMove_" p_pos
-	
-	WinExist("ahk_class Shell_TrayWnd")
-	SysGet, s, Monitor
-	
-	if (IsLabel(label)) {
-		Goto, %label%
-	}
-	return
-	
-	TaskbarMove_Top:
-	TaskbarMove_Bottom:
-	WinMove(sLeft, s%p_pos%, sRight, 0)
-	return
-}
-
-WinMove(p_x, p_y, p_w="", p_h="", p_hwnd="") {
-	WM_ENTERSIZEMOVE:=0x0231
-	WM_EXITSIZEMOVE :=0x0232
-	
-	if (p_hwnd!="") {
-		WinExist("ahk_id " p_hwnd)
-	}
-	
-	SendMessage, WM_ENTERSIZEMOVE
-	;//Tooltip WinMove(%p_x%`, %p_y%`, %p_w%`, %p_h%)
-	WinMove, , , p_x, p_y, p_w, p_h
-	SendMessage, WM_EXITSIZEMOVE
-}
-Return

@@ -123,29 +123,3 @@ WinMove(p_x, p_y, p_w="", p_h="", p_hwnd="") {
 	WinMove, , , p_x, p_y, p_w, p_h
 	SendMessage, WM_EXITSIZEMOVE
 }
-
-
-/*
-	$NumpadMult::
-	while GetKeyState("NumpadMult","P")
-		loop
-		{
-			count++
-			tooltip, %count%
-			sleep, 200
-			
-		}
-	return
-	
-	$NumpadMult Up::
-	BreakLoop = 1
-	count = 0
-	return
-	
-	if (count > 200)
-		MsgBox, count over 200
-	count := 0
-	tooltip
-	tooltip
-	return
-*/
