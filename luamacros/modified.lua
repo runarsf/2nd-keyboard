@@ -7,7 +7,7 @@ lmc_assign_keyboard('MACROS');
 
 sendToAHK = function (key)
       --print('It was assigned string:    ' .. key)
-      local file = io.open("C:\\Users\\rufus\\Documents\\GitHub\\2nd-keyboard\\support files\\keypressed.txt", "w") -- writing this string to a text file on disk is probably NOT the best method. Feel free to program something better!
+      local file = io.open("D:\\Home\\git\\2nd-keyboard\\support files\\keypressed.txt", "w") -- writing this string to a text file on disk is probably NOT the best method. Feel free to program something better!
       --Make sure to substitute the path that leads to your own "keypressed.txt" file, using the double backslashes.
 	  --print("we are inside the text file")
       file:write(key)
@@ -67,17 +67,17 @@ local config = {
 	[105] = "num9",
 
 	[106] = "numMult",
-    [107] = "numDelete",
+        [107] = "numDelete",
     -- 108 is unknown...?
 	[109] = "numMult",
-    [110] = "numDelete",
+        [110] = "numDelete",
 	[111] = "numDiv",
-    [144] = "numLock", --probably it is best to avoid this key. I keep numlock ON, or it has unexpected effects
+        [144] = "numLock", --probably it is best to avoid this key. I keep numlock ON, or it has unexpected effects
 
-    [192] = "`",  --this is the tilde key just before the number row
-    [9]   = "tab",
-    [20]  = "capslock",
-    [18]  = "alt",
+        [192] = "`",  --this is the tilde key just before the number row
+        [9]   = "tab",
+        [20]  = "capslock",
+        [18]  = "alt",
 
 
 	[string.byte('Q')] = "q",
@@ -107,16 +107,16 @@ local config = {
 	[string.byte('N')] = "n",
 	[string.byte('M')] = "m",
 
-    [string.byte('0')] = "0",
+        [string.byte('0')] = "0",
 	[string.byte('1')] = "1",
 	[string.byte('2')] = "2",
 	[string.byte('3')] = "3",
 	[string.byte('4')] = "4",
 	[string.byte('5')] = "5",
-    [string.byte('6')] = "6",
-    [string.byte('7')] = "7",
-    [string.byte('8')] = "8",
-    [string.byte('9')] = "9",
+        [string.byte('6')] = "6",
+        [string.byte('7')] = "7",
+        [string.byte('8')] = "8",
+        [string.byte('9')] = "9",
 
 	--[255] = "printscreen" --these keys do not work
 }
